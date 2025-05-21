@@ -1,0 +1,14 @@
+let promise = Promise.resolve();
+        for (let i = 0; i < data.length; i++) {
+            const item = data[i];
+            promise = promise.then(() => {
+                return utils.api.cart.itemUpdate(item.cartItemId, item.qty, (err, response) => {
+                    if (response && response.data && response.data.status === 'succeed') {
+                        console.log("item updated", lineItemId);
+                    }
+                });
+            });
+        }
+        promise.then(() => {
+            console.log('🎉 All line items updated successfully!');
+        });

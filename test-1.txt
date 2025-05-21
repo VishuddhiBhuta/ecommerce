@@ -1,0 +1,8 @@
+for (let i = 0; i < data.length; i++) {
+  const item = data[i];
+	utils.api.cart.itemUpdate(item.cartItemId, item.qty, (err, response) => {
+      if (response && response.data && response.data.status === 'succeed') {
+        console.log("item updated", lineItemId);
+      }
+  });
+}
